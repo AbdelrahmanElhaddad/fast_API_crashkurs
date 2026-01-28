@@ -1,6 +1,9 @@
-from fastapi import FastAPI 
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from pydantic import BaseModel, Field
+from jose import jwt
 from enum import Enum
+
 
 items = [
     {"name": "Computer", "preis": 2000, "typ": "hardware"},
